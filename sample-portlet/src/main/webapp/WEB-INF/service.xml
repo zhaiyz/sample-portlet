@@ -1,0 +1,42 @@
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+
+<service-builder package-path="com.zhaiyz">
+	<author>zhaiyz</author>
+	<namespace>LP</namespace>
+	<entity name="Book" uuid="true" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="bookId" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="author" type="String" />
+		<column name="title" type="String" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="bookId" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="C_G" return-type="Collection">
+			<finder-column name="companyId" />
+			<finder-column name="groupId" />
+		</finder>
+	</entity>
+</service-builder>
